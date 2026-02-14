@@ -1,0 +1,119 @@
+{
+  "info": {
+    "name": "Southwest MCP Tool Calls",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "Collection for testing MCP tools directly via HTTP"
+  },
+  "item": [
+    {
+      "name": "List Tools",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{mcp_server_url}}/tools/list",
+          "host": [
+            "{{mcp_server_url}}"
+          ],
+          "path": [
+            "tools",
+            "list"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{}"
+        }
+      }
+    },
+    {
+      "name": "Call flight_status",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{mcp_server_url}}/tools/call",
+          "host": [
+            "{{mcp_server_url}}"
+          ],
+          "path": [
+            "tools",
+            "call"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"tool\": \"flight_status\",\n  \"arguments\": {\n    \"flight_number\": \"WN123\",\n    \"date\": \"2026-07-03\"\n  }\n}"
+        }
+      }
+    },
+    {
+      "name": "Call checkin_window",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{mcp_server_url}}/tools/call",
+          "host": [
+            "{{mcp_server_url}}"
+          ],
+          "path": [
+            "tools",
+            "call"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"tool\": \"checkin_window\",\n  \"arguments\": {\n    \"departure_time\": \"2026-07-03T14:30:00Z\"\n  }\n}"
+        }
+      }
+    },
+    {
+      "name": "Call baggage_policy",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{mcp_server_url}}/tools/call",
+          "host": [
+            "{{mcp_server_url}}"
+          ],
+          "path": [
+            "tools",
+            "call"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"tool\": \"baggage_policy\",\n  \"arguments\": {\n    \"topic\": \"carryon\"\n  }\n}"
+        }
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "mcp_server_url",
+      "value": "http://localhost:8080"
+    }
+  ]
+}
